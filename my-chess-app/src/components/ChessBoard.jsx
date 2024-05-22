@@ -7,7 +7,7 @@ function ChessBoard() {
     const [chessBoard, setChessBoard] = useState([])
 
     const pieces = {
-        empty: "empty",
+        empty: " ",
         white: {
             pawn: "P",
             rook: "R",
@@ -68,10 +68,8 @@ function ChessBoard() {
     }
 
     function generatePieces() {
-        console.log(chessBoard)
         // copy chess board
         let newBoard = [...chessBoard]
-        console.log(newBoard)
 
         // generate the front rows (pawns)
         let frontRowBlack = newBoard[6]
@@ -118,7 +116,7 @@ function ChessBoard() {
             {chessBoard.map((row) => (
                 <Box sx={{display: "flex"}}>
                     {row.map((cell) => (
-                        <BoardSquare piece={cell.piece} isDark={cell.isDark}/>
+                        <BoardSquare id={`${cell.file}${cell.rank}`} piece={cell.piece} isDark={cell.isDark}/>
                     ))}
                 </Box>
             ))}
